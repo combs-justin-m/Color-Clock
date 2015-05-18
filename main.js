@@ -1,52 +1,52 @@
 function hexClock() {
   function check(i) {if (i < 10) {i = "0" + i;} return i;}
   var today = new Date();
-  var hour = today.getHours();
-  var minute = today.getMinutes();
-  minute = check(minute);
-  var second = today.getSeconds();
-  second = check(second);
+  var hour = check(today.getHours());
+  var minute = check(today.getMinutes());
+  var second = check(today.getSeconds());
   var $clock = document.querySelector('#clock');
   $clock.innerHTML = '#' + hour + minute + second;
   second = check(second);
   document.querySelector('body').style.background = '#' + hour + minute + second;
 }
 
-// function regClock() {
-//   function check(i) {if (i < 10) {i = "0" + i;} return i;}
-//   var today = new Date();
-//   var hour = today.getHours();
-//   var minute = today.getMinutes();
-//   minute = check(minute);
-//   var second = today.getSeconds();
-//   second = check(second);
-//   var $clock = document.querySelector('#clock');
-//   $clock.innerHTML = hour + ':' + minute + ':' + second;
-//   second = check(second);
-//   document.querySelector('body').style.backgroundColor = '#' + hour + minute + second;
-// }
+hexClock();
 
-// var regTimer = setInterval(function(){
-//   regClock();
-// }, 500);
-
+var hexRunning = true;
 var hexTimer = setInterval(function(){
+  if (hexRunning){
     hexClock();
-}, 500);
+  }
+}, 1000);
 
-// function showColor() {
-//   clearInterval(regTimer);
-//   setInterval(function(){
-//   hexClock();
-// }, 500);
-// }
+function regClock() {
+  function check(i) {if (i < 10) {i = "0" + i;} return i;}
+  var today = new Date();
+  var hour = check(today.getHours());
+  var minute = check(today.getMinutes());
+  var second = check(today.getSeconds());
+  var $clock = document.querySelector('#clock');
+  $clock.innerHTML = hour + ':' + minute + ':' + second;
+  second = check(second);
+  document.querySelector('body').style.background = '#' + hour + minute + second;
+}
 
-// function showTime() {
-//   clearInterval(hexTimer);
-//   setInterval(function(){
-//   regClock();
-// }, 500);
-// }
+var regRunning = false
+var regTimer = setInterval(function(){
+  if (regRunning){
+    regClock();
+  }
+}, 1000);
 
-// document.querySelector('#showColor').addEventListener('click', showColor);
-// document.querySelector('#showTime').addEventListener('click', showTime);
+function showColor() {
+  regRunning = false;
+  hexRunning = true;
+};
+
+function showTime() {
+  hexRunning = false;
+  regRunning = true;
+};
+
+document.querySelector('#showColor').addEventListener('click', showColor);
+document.querySelector('#showTime').addEventListener('click', showTime);
