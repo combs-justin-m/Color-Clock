@@ -1,4 +1,5 @@
 body {
+  background: black;
   transition: background-color 0.5s ease;
   font-family: 'Dosis', sans-serif;
   font-weight: 200;
