@@ -27,6 +27,7 @@ button {
   margin: 24px;
   color: #fff;
   border: 2px solid #fff;
+  outline: none;
   transition: all .3s ease-in-out;
 }
 
