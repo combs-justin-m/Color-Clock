@@ -13,8 +13,8 @@ section {
 
 #clock {
   position: relative;
-  margin: 15% auto 0;
-  font-size: 130px;
+  margin: 10% auto 0;
+  font-size: 170px;
   width: 450px;
   border-bottom: 5px solid #fff
 }
