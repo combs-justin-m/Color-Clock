@@ -13,9 +13,9 @@ section {
 
 #clock {
   position: relative;
-  margin: 10% auto 0;
-  font-size: 100px;
-  width: 525px;
+  margin: 15% auto 0;
+  font-size: 115px;
+  width: 675px;
   border-bottom: 5px solid #fff
 }
 
